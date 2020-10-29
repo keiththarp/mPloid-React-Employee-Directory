@@ -2,30 +2,30 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Card from "../components/Card/index"
 
-interface Employee {
-  id: string,
-  first: string,
-  last: string,
-  email: string,
-  phone: string,
-  location: string,
-  photo: string,
+interface IEmployee {
+  id: string;
+  first: string;
+  last: string;
+  email: string;
+  phone: string;
+  location: string;
+  photo: string;
 };
 
-
-// interface Props {
-//   employee: Employee,
-// }
+interface IState {
+  data: IEmployee[];
+  name?: string;
+}
 
 class Directory extends Component {
-  state = {
+  state: IState = {
     data: []
   };
   componentDidMount() {
     API.getEmployeeData()
       .then(res => {
         console.log(res.data);
-        const employeeDetails = res.data.results.map(function (el: any): Employee {
+        const employeeDetails = res.data.results.map(function (el: any): IEmployee {
           return {
             id: el.id.value,
             first: el.name.first,
@@ -46,14 +46,14 @@ class Directory extends Component {
   render() {
     return (
       <div>
-        {this.state.data.forEach((el: any) => {
+        {(this.state.data).forEach((el) => {
           console.log(el.first);
           // <Card photo={el.photo} />
 
         })}
-        <Card photo={this.state.data.forEach((el: any) => {
-          return el.photo;
-        })} />
+        {this.state.data.map((el) => (
+          <Card key={el.id} photo={el.photo} />
+        ))}
         What the hell
       </div>
     );
