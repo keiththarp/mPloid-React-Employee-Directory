@@ -23,7 +23,7 @@ function EmployeeData() {
           email: el.email,
           phone: el.phone,
           location: `${el.location.city}, ${el.location.state}`,
-          photo: `<img src="${el.picture.thumbnail}" alt="" width="50" height="50" />`,
+          photo: el.picture.thumbnail,
         }
       })
       setEmployeeArray(employeeDetails);

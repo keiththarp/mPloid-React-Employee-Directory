@@ -220,7 +220,7 @@ export default function EnhancedTable() {
   const [selected, setSelected] = React.useState<string[]>([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(25);
 
   const rows = EmployeeData().map(function (el: any): Data {
     return {
@@ -311,7 +311,6 @@ export default function EnhancedTable() {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.first);
-                  const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
                     <TableRow
@@ -324,7 +323,7 @@ export default function EnhancedTable() {
                       selected={isItemSelected}
                     >
 
-                      <TableCell align="right">{row.photo}</TableCell>
+                      <TableCell align="right">{<img src={row.photo} alt={`${row.first} ${row.last}`} width="50" height="50" />}</TableCell>
 
                       <TableCell align="right">{row.id}</TableCell>
                       <TableCell align="right">{row.first}</TableCell>
@@ -344,7 +343,7 @@ export default function EnhancedTable() {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[25, 50, 100]}
           component="div"
           count={rows.length}
           rowsPerPage={rowsPerPage}
