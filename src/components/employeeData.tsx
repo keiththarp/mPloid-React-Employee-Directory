@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 
@@ -11,8 +12,9 @@ interface IEmployee {
   photo: string;
 };
 
-function EmployeeData() {
+export default function EmployeeData() {
   const [employeeArray, setEmployeeArray] = useState([]);
+
   useEffect(() => {
     API.getEmployeeData().then(res => {
       const employeeDetails = res.data.results.map(function (el: any): IEmployee {
@@ -32,5 +34,3 @@ function EmployeeData() {
   }, []);
   return employeeArray;
 }
-
-export default EmployeeData;
