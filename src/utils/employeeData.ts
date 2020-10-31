@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useEffect, useState } from "react";
-import API from "../utils/API";
+import API from "./API";
 
 interface IEmployee {
   id: string;
