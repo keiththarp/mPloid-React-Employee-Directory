@@ -9,7 +9,6 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
-import EmployeeData from "../../utils/employeeData";
 
 interface Data {
   id: string;
@@ -61,7 +60,7 @@ interface HeadCell {
 }
 
 const headCells: HeadCell[] = [
-  // { id: 'photo', numeric: false, disablePadding: true, label: '' },
+  { id: 'photo', numeric: false, disablePadding: true, label: '' },
   { id: 'id', numeric: false, disablePadding: true, label: 'ID' },
   { id: 'first', numeric: false, disablePadding: false, label: 'First Name' },
   { id: 'last', numeric: false, disablePadding: false, label: 'Last Name' },
@@ -195,7 +194,7 @@ export default function EmployeeGrid(props: any) {
                       tabIndex={-1}
                       key={row.id}
                     >
-                      {/* <TableCell align="center">{<img src={row.photo} alt={`${row.first} ${row.last}`} width="50" height="50" />}</TableCell> */}
+                      <TableCell align="center">{<img src={`${row.photo}`} alt={`${row.first} ${row.last}`} width="50" height="50" />}</TableCell>
 
                       <TableCell align="center">{row.id}</TableCell>
                       <TableCell align="center">{row.first}</TableCell>

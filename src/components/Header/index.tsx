@@ -4,7 +4,7 @@ import "./style.css";
 function Header() {
   return (
     <header className="header">
-      <span>mPloid Employee Directory App</span>
+      <h1>mPloid Employee Directory App</h1>
     </header>
   );
 }

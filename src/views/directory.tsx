@@ -17,7 +17,6 @@ interface IEmployee {
 interface IState {
   employeeArray: IEmployee[];
   currentSearchArray: IEmployee[];
-  currentSearchTerm: string;
 }
 
 class Directory extends Component {
@@ -25,7 +24,6 @@ class Directory extends Component {
   state: IState = {
     employeeArray: [],
     currentSearchArray: [],
-    currentSearchTerm: "",
   }
 
   componentDidMount() {
@@ -49,8 +47,6 @@ class Directory extends Component {
       })
       .catch(err => console.log(err));
   };
-
-  // const debounce = useDebounce(currentSearchTerm, 500);
 
   handleInputChange = (event: any) => {
     const searchTerm: string = event.target.value.toLowerCase();
