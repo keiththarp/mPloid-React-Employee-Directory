@@ -49,6 +49,7 @@ class Directory extends Component {
   };
 
   handleInputChange = (event: any) => {
+    event.preventDefault();
     const searchTerm: string = event.target.value.toLowerCase();
     this.setState({
       currentSearchArray: this.state.employeeArray.filter((el) => (
