@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 // import useDebounce from '../../utils/useDebounce'
+import DataFilter from '../../utils/dataFilter'
 
 export default function SearchBar() {
 
@@ -10,6 +11,7 @@ export default function SearchBar() {
 
   const handleInputChange = (event: any) => {
     setCurrentSearchTerm(event.target.value);
+    DataFilter(event.target.value)
   }
 
   return (
