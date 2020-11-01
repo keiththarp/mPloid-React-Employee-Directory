@@ -21,6 +21,7 @@ interface Data {
   photo: string;
 }
 
+
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -60,7 +61,7 @@ interface HeadCell {
 }
 
 const headCells: HeadCell[] = [
-  { id: 'photo', numeric: false, disablePadding: true, label: '' },
+  // { id: 'photo', numeric: false, disablePadding: true, label: '' },
   { id: 'id', numeric: false, disablePadding: true, label: 'ID' },
   { id: 'first', numeric: false, disablePadding: false, label: 'First Name' },
   { id: 'last', numeric: false, disablePadding: false, label: 'Last Name' },
@@ -139,24 +140,15 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function EnhancedTable() {
+export default function EmployeeGrid(props: any) {
+
   const classes = useStyles();
   const [order, setOrder] = React.useState<Order>('asc');
   const [orderBy, setOrderBy] = React.useState<keyof Data>('last');
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(25);
 
-  const rows = EmployeeData().map(function (el: any): Data {
-    return {
-      id: el.id,
-      first: el.first,
-      last: el.last,
-      email: el.email,
-      phone: el.phone,
-      location: el.location,
-      photo: el.photo,
-    }
-  });
+  const rows = props.rows;
 
   const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof Data) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -195,7 +187,7 @@ export default function EnhancedTable() {
             <TableBody>
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
+                .map((row) => {
 
                   return (
                     <TableRow
@@ -203,8 +195,7 @@ export default function EnhancedTable() {
                       tabIndex={-1}
                       key={row.id}
                     >
-
-                      <TableCell align="center">{<img src={row.photo} alt={`${row.first} ${row.last}`} width="50" height="50" />}</TableCell>
+                      {/* <TableCell align="center">{<img src={row.photo} alt={`${row.first} ${row.last}`} width="50" height="50" />}</TableCell> */}
 
                       <TableCell align="center">{row.id}</TableCell>
                       <TableCell align="center">{row.first}</TableCell>
