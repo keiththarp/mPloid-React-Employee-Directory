@@ -37,7 +37,7 @@ class Directory extends Component {
             email: el.email,
             phone: el.phone,
             location: `${el.location.city}, ${el.location.state}`,
-            photo: el.picture.thumbnail,
+            photo: el.picture.thumbnail as string,
           }
         })
         this.setState({
@@ -48,7 +48,7 @@ class Directory extends Component {
       .catch(err => console.log(err));
   };
 
-  handleInputChange = (event: any) => {
+  handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     const searchTerm: string = event.target.value.toLowerCase();
     this.setState({

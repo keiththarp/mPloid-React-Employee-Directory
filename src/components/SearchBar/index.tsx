@@ -9,7 +9,9 @@ export default function SearchBar(props: any) {
 
   return (
     <div className="search-bar">
-      <TextField onSubmit={handleOnSubmit} onChange={props.handleInputChange} id="outlined-search" label="Search Last Name" type="search" variant="outlined" />
+      <form onSubmit={handleOnSubmit}>
+        <TextField onChange={props.handleInputChange} id="outlined-search" label="Search Last Name" type="search" variant="outlined" />
+      </form>
     </div>
   )
 }
