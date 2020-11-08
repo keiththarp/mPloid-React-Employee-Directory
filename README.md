@@ -2,7 +2,7 @@
 # mPloid-React-Employee-Directory
 Find folks fast with mPloid, an employee directory powered by React!
 
-[You can view the deployed app here:](https://keiththarp.github.io/mPloid-React-Employee-Directory/ "View mPloid App") https://balance-is-key.herokuapp.com/
+[You can view the deployed app here:](https://keiththarp.github.io/mPloid-React-Employee-Directory/ "View mPloid App") https://keiththarp.github.io/mPloid-React-Employee-Directory/
 ![mPloid screen shot](./public/assets/mPloid-screenshot.png)
 
 ## Table of Contents
